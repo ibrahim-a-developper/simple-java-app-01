@@ -1,7 +1,7 @@
 # simple-java-app
 ## This is simple Java App to Test Continous Integration and Deployment
 
-### Build the Java code  
+### Build the Java code s 
 ```mvn clean package```
 
 ### Run Tests
