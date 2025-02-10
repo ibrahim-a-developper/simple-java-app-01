@@ -30,7 +30,7 @@ pipeline{
                 script{
                     withAWS(credentials: 'aws-cli', region: 'us-east-1') {
                         sh 'aws eks update-kubeconfig --region us-east-1 --name peculiar-dubstep-monster'
-                        sh 'kubectl apply -f ./k8s/deployment.yaml'
+                        sh 'kubectl apply -f ./k8s/deployment.yaml --validate=false'
 
                     }
                 }
