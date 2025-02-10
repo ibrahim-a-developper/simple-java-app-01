@@ -7,7 +7,7 @@ pipeline{
         stage('build'){
             steps{
                 script{
-                    sh 'docker build -t app-java .'
+                    sh 'sudo docker build -t app-java .'
                 }
             }
         }
@@ -16,9 +16,9 @@ pipeline{
             steps{
                 script{
                     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'password', usernameVariable: 'username')]) {
-                        sh 'docker login --username $username --password $password'
-                        sh 'docker tag app-java $username/app-java:latest'
-                        sh 'docker push $username/app-java:latest'
+                        sh 'sudo docker login --username $username --password $password'
+                        sh 'sudo docker tag app-java $username/app-java:latest'
+                        sh 'sudo docker push $username/app-java:latest'
 
                     }
                 }
