@@ -1,0 +1,19 @@
+name: CI Java App2
+on:
+    push:
+        branches:
+            - "master"
+          
+           
+jobs:
+    build:
+        name: Build and Package Java App
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+
+            - name: Build and Packagen
+              run: mvn clean package
+
+   
