@@ -1,10 +1,10 @@
 name: CI Java App2
 on:
+    repository_dispatch:
+      types: [test]
     push:
         branches:
-            - "master"
-          
-           
+            - "master"         
 jobs:
     build:
         name: Build and Package Java App
