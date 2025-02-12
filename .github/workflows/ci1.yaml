@@ -1,23 +1,27 @@
 name: CI Java App2
 on:
-    workflow_dispatch:
-      inputs:
-        versionName:
-          required: true
-          description: "This is version for github workflow"
+    # workflow_dispatch:
+    #   inputs:
+    #     versionName:
+    #       required: true
+    #       description: "This is version for github workflow"
 
 
 
     # repository_dispatch:
     #   types: [test]
-    # push:
-    #     branches:
-    #         - "master"         
+    push:
+        branches:
+            - "master"         
 jobs:
     build:
         name: Build and Package Java App
         runs-on: ubuntu-latest
+        container:
+          image: node:14.16
         steps:
+            - name: Check Version
+              run: node -v
             - name: Before Checkout Code
               if: github.ref == 'refs/heads/feature'
               run: ls
